@@ -23,23 +23,23 @@ public class Driver {
         Polynomial t2 = p2.multiply(p1);
         System.out.println("t2(0.1) = " + t2.evaluate(0.1));
 
-        System.out.println("\n=== 测试多项式保存到文件 ===");
+        System.out.println("\n=== Testing Polynomial Save to File ===");
         try {
             s1.saveToFile("s1_output.txt");
-            System.out.println("多项式 s1 已保存到文件 's1_output.txt'");
+            System.out.println("Polynomial s1 has been saved to the file 's1_output.txt'");
 
             Polynomial filePoly = new Polynomial(new File("s1_output.txt"));
-            System.out.println("从文件读取的多项式 s1(0.1) = " + filePoly.evaluate(0.1));
+            System.out.println("Polynomial read from file s1(0.1) = " + filePoly.evaluate(0.1));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        System.out.println("\n=== 测试文件格式 (1x1) ===");
+        System.out.println("\n=== Testing File Format (1x1) ===");
         try {
             Polynomial polyFromFile = new Polynomial(new File("/Users/katelei/fileforpoly.txt"));  // 1x1+3x2
-            System.out.println("polyFromFile(1) = " + polyFromFile.evaluate(1));  // 测试文件中读取的多项式
+            System.out.println("polyFromFile(1) = " + polyFromFile.evaluate(1));  // Testing polynomial read from the file
             polyFromFile.saveToFile("poly_test_output.txt");
-            System.out.println("多项式 polyFromFile 已保存到文件 'poly_test_output.txt'");
+            System.out.println("Polynomial polyFromFile has been saved to the file 'poly_test_output.txt'");
         } catch (IOException e) {
             e.printStackTrace();
         }
